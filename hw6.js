@@ -139,19 +139,36 @@ const bondFilms = [
 //Create a new array called bondTitles with only the titles of the Bond films, and 
 //console.log the new array.
 //Commit: "bondTitles array"
+/*
 const bondTitle = [];
       for(let key in bondFilms){
               bondTitle.push(bondFilms[key].title);
       }
-         console.log(bondTitle);
+         console.log(bondTitle); */
 //Answer
 //Create a new array oddBonds, of only the Bond films released on odd-numbered years.
 //Commit: "oddBonds"
-/*const oddBonds = [
-        
-]*/
+const oddBonds = [];
+      for(let i in bondFilms){
+             if (bondFilms[i].year % 2 ==1){
+                oddBonds.push(bondFilms[i].year);
+             }
+        }
+        console.log(oddBonds)
+      
 //Determine the total cumulative gross of the Bond franchise, and console.log the result.
 //Hint: To make the grosses into usable numbers, look into the .replace Javascript
 // method (there are many ways to do this, however). Look into parseInt() also.
-      
+
 //Commit: "bond films gross"
+
+let total=0;
+//loop through films array
+for(let i in bondFilms){
+        //removed the $ and , out of the string
+        bondFilms[i].gross=bondFilms[i].gross.replace('$','').replace(',','').replace(',','').replace(',','')
+        //convert string to number then add previous gross to total
+         total += parseInt(bondFilms[i].gross)
+}
+//print total
+console.log(total)
